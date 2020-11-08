@@ -16,7 +16,7 @@ namespace ColorizedRooms
             String input = File.ReadAllText("../../../Input.txt");
 
             Console.WriteLine("Input:");
-            m = input.IndexOf("\n");
+            m = input.IndexOf("\n") - 1;
             n = input.Split("\n").Length;
 
             int k = 0, l = 0;
@@ -30,6 +30,8 @@ namespace ColorizedRooms
                         break;
                     if (col.ToString() != "#" && col.ToString() != " ")
                         continue;
+                    if (l >= m)
+                        break;
                     array[k, l] = col.ToString();
                     l++;
                 }
@@ -79,11 +81,11 @@ namespace ColorizedRooms
 
         static bool isValid(int x, int y)
         {
-            if (x < 1 || x > n || y < 1 || y > m) return false;
+            if (x < 1 || x >= n || y < 1 || y >= m) return false;
             if (visited[x,y] == true || array[x,y] == "#") return false;
             
             
-            if (array[x, y + 1] == "#" && (y > 0 && array[x, y - 1] == "#"))
+            if (y + 1 < m && array[x, y + 1] == "#" && (y > 0 && array[x, y - 1] == "#"))
             {
                 visited[x, y] = true;
                 return false;
