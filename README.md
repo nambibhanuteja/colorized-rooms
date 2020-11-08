@@ -3,3 +3,7 @@
 * This is a recursive depth first search algorithm, implemented by maintaining a visited array to track the spaces that are already visited.
 * I accounted the input only to contain '#' and ' ' (white space) characters. Other characters will be ignored.
 * Any additional characters in the subsequent lines, after the length of first line's length will also be ignored.
+* Sample outputs:
+
+![Output 1](/ColorizedRooms/SampleOutput1.JPG)
+![Output 2](/ColorizedRooms/SampleOutput2.JPG)
